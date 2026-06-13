@@ -1,0 +1,43 @@
+workflows:
+  main-workflow:
+    name: english_bro_v2 Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      groups:
+        - common_env
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Flutter analyze
+        script: |
+          flutter analyze
+      - name: Build Android APK
+        script: |
+          flutter build apk --debug
+      - name: Build iOS (No code signing)
+        script: |
+          # iOS 시뮬레이터용 또는 코드 사인 없이 빌드 가능 여부만 체크
+          flutter build ios --debug --no-codesign
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/iphoneos/*.app
+      - build/ios/iphoneos/Runner.app
+
+    publishing:
+      email:
+        recipients:
+          - user@example.com # 실제 수신 이메일로 변경하세요.
+        notify:
+          success: true
+          failure: true

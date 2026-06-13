@@ -1,0 +1,12 @@
+# Flutter/Dart 관련
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# IDE 및 도구 관련
+.idea/
+.vscode/
+.codex/
+*.log
+.DS_Store
