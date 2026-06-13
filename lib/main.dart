@@ -6,7 +6,7 @@ void main() {
 }
 
 class VocabularyApp extends StatelessWidget {
-  const VocabularyApp({Key? key}) : super(key: key);
+  const VocabularyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

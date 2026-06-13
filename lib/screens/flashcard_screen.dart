@@ -5,10 +5,7 @@ import '../models/vocabulary.dart';
 class FlashcardScreen extends StatefulWidget {
   final List<Vocabulary> vocabularies;
 
-  const FlashcardScreen({
-    Key? key,
-    required this.vocabularies,
-  }) : super(key: key);
+  const FlashcardScreen({super.key, required this.vocabularies});
 
   @override
   State<FlashcardScreen> createState() => _FlashcardScreenState();

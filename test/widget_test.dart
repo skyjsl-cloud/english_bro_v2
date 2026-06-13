@@ -8,23 +8,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:vocabulary_app/main.dart';
+import 'package:english_bro_v2/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // 앱을 빌드하고 프레임을 렌더링합니다.
+    await tester.pumpWidget(const VocabularyApp());
+    
+    // 초기 화면에 '영단어 삼형제' 타이틀과 레벨 선택 안내 문구가 있는지 확인합니다.
+    expect(find.text('영단어 삼형제'), findsOneWidget);
+    expect(find.text('학습할 레벨을 선택하세요'), findsOneWidget);
   });
 }

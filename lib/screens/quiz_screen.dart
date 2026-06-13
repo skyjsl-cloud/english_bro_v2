@@ -8,11 +8,7 @@ class QuizScreen extends StatefulWidget {
   final List<Vocabulary> vocabularies;
   final bool isMeaningToWord; // true: 뜻 -> 단어, false: 단어 -> 뜻
 
-  const QuizScreen({
-    Key? key,
-    required this.vocabularies,
-    this.isMeaningToWord = false,
-  }) : super(key: key);
+  const QuizScreen({super.key, required this.vocabularies, this.isMeaningToWord = false});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
